@@ -33,7 +33,7 @@ export default (
       return typeof attribute.name !== 'undefined' && attribute.name.name === destinationName;
     });
 
-  if (destinationAttribute && destinationAttribute !== sourceAttribute.name.name) {
+  if (destinationAttribute && destinationAttribute.name && destinationAttribute.name.name !== sourceAttribute.name.name) {
     if (isStringLiteral(destinationAttribute.value)) {
       destinationAttribute.value.value += ' ' + resolvedStyleName;
     } else if (isJSXExpressionContainer(destinationAttribute.value)) {
